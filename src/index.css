@@ -4,6 +4,7 @@
   --color-red-dark: #A01B20;
   --color-green: #1D7A63;
   --color-burgundy: #5D1725;
+  --color-green-transparent: rgba(29, 122, 99, 0.1); /* 10% d'opacité */
 
   /* Couleurs de fond */
   --color-background: #FFFFFF;
@@ -26,6 +27,23 @@
   --spacing-xl: 2rem;       /* 32px */
   --spacing-2xl: 3rem;      /* 48px */
   --spacing-3xl: 4rem;      /* 64px */
+  --spacing-4xl: 5rem;      /* 80px */
+  --spacing-5xl: 6rem;      /* 96px */
+
+  /* Opacité */
+  --opacity-0: 0;
+  --opacity-5: 0.05;
+  --opacity-10: 0.1;
+  --opacity-20: 0.2;
+  --opacity-25: 0.25;
+  --opacity-30: 0.3;
+  --opacity-40: 0.4;
+  --opacity-50: 0.5;
+  --opacity-60: 0.6;
+  --opacity-70: 0.7;
+  --opacity-80: 0.8;
+  --opacity-90: 0.9;
+  --opacity-100: 1;
 
   /* Typographie */
   --font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -40,6 +58,20 @@
   --font-size-3xl: 2rem;     /* 32px */
   --font-size-4xl: 2.5rem;   /* 40px */
   --font-size-5xl: 3rem;     /* 48px */
+  --font-size-6xl: 4rem;     /* 64px */
+  --font-size-7xl: 5rem;     /* 80px */
+  --font-size-55xl:3.5rem; 
+  --font-size-8xl: 6rem;     /* 96px */
+  --font-size-9xl: 7rem;     /* 112px */
+  --font-size-10xl: 8rem;   /* 128px */
+
+  /* Line heights */
+  --line-height-sm: 1.25;
+  --line-height-base: 1.5;
+  --line-height-lg: 1.75;
+  --line-height-xl: 2;
+  --line-height-2xl: 2.25;
+  --line-height-3xl: 2.5;
 
   /* Font weights */
   --font-weight-normal: 400;
@@ -80,6 +112,13 @@ body {
   color: var(--color-text-primary);
   background-color: var(--color-background);
   line-height: 1.5;
+  padding-top: 8px;
+  width: 100wh;
+  background: linear-gradient(135deg,
+  rgba(93, 23, 37, 0.03) 0%,
+  rgba(29, 122, 99, 0.03) 50%,
+  rgba(193, 32, 38, 0.03) 100%
+);
 }
 
 /* Utilitaires de base */
@@ -90,4 +129,242 @@ body {
   margin-right: auto;
   padding-left: var(--spacing-md);
   padding-right: var(--spacing-md);
+}
+/* ============================= */
+/*        DEFAULT STYLES         */
+/* ============================= */
+
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input {
+  border: none;
+  outline: none;
+  background: none;
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 🎨 =============================== 🎨 */
+/*        HEADER STYLES ✨              */
+/*    by room67 & maymsi 🚀            */
+/* 🎨 =============================== 🎨 */
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 var(--spacing-2xl) ;
+}
+nav .logo{
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+nav .logo h1{
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+
+}
+nav .logo img{
+  width: var(--font-size-5xl);
+}
+nav .links ul{
+  all:unset;
+  display: flex;
+  gap: 20px;
+  align-items: center ;
+}
+li ,a{
+  all:unset;
+}
+.links{
+  width: 45%;
+}
+.links ul{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.links li a{
+  font-size: var(--font-size-base); 
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-sm) var(--spacing-md); 
+  color:black ;
+  cursor: pointer;
+}
+.links li a:hover{
+  color: var(--color-green);
+}
+.join button{
+  font-size: var(--font-size-sm); 
+  padding: var(--spacing-sm) var(--spacing-md); 
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-red);
+  color: var(--color-background);
+}
+.join button:hover{
+  background-color: var(--color-red-dark);
+}
+/* 🎨 =============================== 🎨 */
+/*        End HEADER STYLES ✨              */
+/*    by room67 & maymsi 🚀            */
+/* 🎨 =============================== 🎨 */
+
+/* ░▒▓████████████ Content Section ██████████████▓▒░ */
+.landing-content{
+  display: flex;
+  padding: var(--spacing-lg) 190px;
+  margin-top:var(--spacing-3xl) ;
+
+  
+  gap: 200px;
+  justify-content: center;
+  position: relative; 
+  overflow: hidden;
+
+}
+/* 🎨 =============================== 🎨 */
+/*          Canvas Animation 🎥        */
+/* 🎨 =============================== 🎨 */
+.animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Derrière le texte */
+  pointer-events: none; /* Empêche d'interagir avec */
+  opacity: 0.6;
+}
+
+/* 🎨 =============================== 🎨 */
+/*          Info STYLES ✨              */
+/*    by room67 & maymsi 🚀            */
+/* 🎨 =============================== 🎨 */
+.info{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 30px;
+  position: relative; 
+  z-index: 1;
+}
+.hero-section{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hero-section .Badge{
+  background-color: var(--color-green-transparent);
+  color: var(--color-green);
+  padding: 6px var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  width: fit-content;
+}
+.hero-section .title{
+  display: flex;
+  gap: 1px;
+  flex-direction: column;
+}
+.hero-section .title .first , .hero-section .title .second{
+  font-size: var(--font-size-55xl);
+}
+.hero-section .title .first{
+  color: var(--color-red);
+}
+.hero-section .title .second{
+  position: relative;
+  transform: translateY(-20px);
+  color: var(--color-burgundy);
+}
+.hero-section .specifications{
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-secondary);
+}
+
+/* 🎨 =============================== 🎨 */
+/*          Countdown STYLES ✨              */
+/*    by room67 & maymsi 🚀            */
+/* 🎨 =============================== 🎨 */
+.Countdown{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap:20px;
+}
+.Countdown .title{
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-burgundy);
+}
+.date{
+  display: flex;
+  gap: 12px;
+}
+.date .time{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+.date .time .card{
+  background-color: var(--color-background);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border: var(--color-border) 1px solid;
+  color: var(--color-burgundy);
+  font-weight: bold;
+  font-size: 1.875rem;
+}
+.date .time .text{
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+/* 🎨 =============================== 🎨 */
+/*          Stats STYLES ✨              */
+/*    by room67 & maymsi 🚀            */
+/* 🎨 =============================== 🎨 */
+.stats-section{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width:50%;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
