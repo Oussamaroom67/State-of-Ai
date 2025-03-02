@@ -1,0 +1,25 @@
+.Insights-content{
+    padding: 1.5rem 190px;
+    margin-top:4rem ;
+    position: relative; 
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+.Title{
+    font-size: 50px;
+    font-weight: 700;
+}
+.description{
+    font-size: 16px;
+    text-align: center;
+    width: 70%;
+}
+.Cards{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 5%;
+}
