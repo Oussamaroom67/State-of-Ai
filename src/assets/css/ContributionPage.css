@@ -191,7 +191,7 @@
     flex-direction: column;
     gap: 10px;
 }
-input{
+.form .inputs  input{
     width: 95%;
     padding: 10px;
     border-radius: var(--radius-md);
@@ -202,8 +202,8 @@ input{
     border: var(--color-border) 1px solid ;
     border-radius: var(--radius-lg);
 }
-input:focus{
-    border: var(--color-green) 2px solid;
+.form .inputs input:focus{
+    border: var(--color-green) 2px solid !important;
 }
 label{
     color: black;

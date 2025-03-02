@@ -377,7 +377,7 @@ li ,a{
   display: flex;
   gap:17px;
   flex-direction: column;
-  padding: 20px 60px 30px;
+  padding: 40px 60px 30px;
 }
 .head{
   display: flex;
@@ -468,4 +468,132 @@ li ,a{
 }
 input:focus {
   border: none !important;
+}
+
+/* ░▒▓████████████  Media Queries ██████████████▓▒░ */
+
+/* Tablettes (≤ 1024px) */
+@media (max-width: 1024px) {
+  /* navbar */
+  nav .links a{
+    font-size: var(--font-size-sm);
+  }
+  nav .links ul {
+    gap: 6px;
+  }
+  nav .links{
+    width: 50%;
+  }
+  /* hero section */
+  .hero-section .title .first,.hero-section .title .second{
+    font-size: var(--font-size-4xl);
+  }
+  .hero-section .specifications{
+    font-size: var(--font-size-base);
+  }
+  .hero-section {
+    gap: 5px;
+  }
+  .hero-section .title .second{
+    transform: translateY(-10px);
+  }
+  /* contribution */
+  .contribution{
+    padding: 40px 100px !important;
+    gap: 20px;
+    flex-direction: column;
+  }
+  .contribution .inscription{
+    width: 100%;
+  }
+  .contribution .inscription .form{
+    width: 100%;
+  }
+  .contribution .description{
+    width: 100%;
+  }
+  .design-card{
+    width: 100% !important;
+    height: 300px;
+  }
+}
+
+/* Mobiles (≤ 768px) */
+@media (max-width: 768px) {
+  /* navbar */
+  nav{
+    justify-content: space-between;
+    padding: 10px ;
+  }
+  nav .links{
+    display: none !important;
+  }
+  /* landing */
+  .landing-content{
+    flex-direction: column;
+    padding: 20px;
+    gap: 60px;
+  }
+  .landing-content .info{
+    width: 100%;
+  }
+  .landing-content .stats-section{
+    width: 100%;
+  }
+  .Badge{
+    text-align: center;
+  }
+  /* contrubution */
+  .contribution{
+    gap:40px !important;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px !important;
+    padding-bottom: 40px !important;
+  }
+  .contribution .inscription{
+    width: 100%;
+  }
+  .contribution .inscription .description{
+    font-size: var(--font-size-base);
+    width: 100%;
+    padding: 10px !important;
+  }
+  .contribution .form,.design-card{
+    width: 100% !important;
+  }
+  /* footer */
+  .footer{
+    padding: 20px 10px !important;
+  }
+  .footer .head{
+    gap: 10px;
+    flex-direction: column;
+    width: 100%;
+  }
+  .footer .description{
+    width: 100%;
+  }
+  .footer .head .info{
+    width: 100%;
+  }
+  .footer .head .links{
+    width: 100%;
+  }
+  .footer .contact{
+    width: 100%;
+  }
+  .copyright{
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px !important;
+  }
+
+}
+
+/* Petits écrans (≤ 480px) */
+@media (max-width: 480px) {
+
 }

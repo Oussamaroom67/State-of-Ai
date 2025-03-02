@@ -83,7 +83,7 @@ export default function ContributionPage() {
         <>
             <div className="contribution">
                 <div className="inscription">
-                    <div className="description">
+                    <div className="description" style={{textAlign:"start"}}>
                         <div className="title">
                             Be Part of Morocco's AI Revolution
                         </div>
