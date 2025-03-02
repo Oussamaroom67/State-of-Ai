@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 
 export default function CardStats() {
   return (
-    <Card sx={{ maxWidth: 340, padding: 1 }} style={{boxShadow:"0 10px 15px -3px rgb(0 0 0 / 0.1)"}}>
+    <Card sx={{ maxWidth: 340, padding: 1 }} style={{boxShadow:"0 10px 15px -3px rgb(0 0 0 / 0.1)",borderRadius:"12px"}}>
     <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
       <Typography gutterBottom sx={{ fontSize: 18,  }} style={{color:"#5D1725",fontWeight:"bold"}}>
         Join the Initiative

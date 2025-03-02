@@ -24,7 +24,7 @@ function AnimatedBackground() {
 
     // Configuration des particules
     const particles = [];
-    const particleCount = 50;
+    const particleCount = 300;
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
