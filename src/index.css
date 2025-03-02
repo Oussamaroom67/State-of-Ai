@@ -366,3 +366,6 @@ li ,a{
   position: relative;
   z-index: 1;
 }
+input:focus {
+  border: none !important;
+}
