@@ -280,7 +280,7 @@ li ,a{
   flex-direction: column;
   gap: 10px;
 }
-.hero-section .Badge{
+.Badge{
   background-color: var(--color-green-transparent);
   color: var(--color-green);
   padding: 6px var(--spacing-md);
@@ -305,7 +305,7 @@ li ,a{
   transform: translateY(-20px);
   color: var(--color-burgundy);
 }
-.hero-section .specifications{
+.specifications{
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-normal);
   color: var(--color-text-secondary);

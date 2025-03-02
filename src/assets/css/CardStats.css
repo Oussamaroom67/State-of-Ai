@@ -14,11 +14,11 @@
     --color-text-primary: #5D1725;
     --color-text-secondary: #64748B;
     --color-text-muted: #94A3B8;
-  
+
     /* Couleurs de bordure */
     --color-border: #E2E8F0;
     --color-border-light: #F1F5F9;
-  
+
     /* Espacements */
     --spacing-xs: 0.25rem;    /* 4px */
     --spacing-sm: 0.5rem;     /* 8px */
