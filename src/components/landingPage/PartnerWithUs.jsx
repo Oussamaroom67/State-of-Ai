@@ -33,9 +33,9 @@ export default function PartnerWithUs(){
                 <div className="Badge">For Organizations</div>
                 <div className="Title">Partner With Us</div>
                 <div className="specifications description">Join leading Moroccan companies in shaping the future of AI in our country. Become a partner and gain exclusive insights.</div>
-                <div className="Cards" style={{ display: "flex", gap: "0%" }}>
+                <div className="Cards PartnerCards" style={{ display: "flex", gap: "0%" }}>
                     {cards.map((card) => (
-                        <Box key={card.id} style={{ width: "47%" }}>
+                        <Box key={card.id} style={{ width: "47%" }} className="card">
                             <Card
                                 variant="outlined"
                                 style={{
@@ -44,7 +44,8 @@ export default function PartnerWithUs(){
                                     border: hovered === card.id ? `1px solid ${card.borderColor}` : "1px solid transparent",
                                     transition: "border 0.3s ease-in-out",
                                     boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.08)", 
-                                    backgroundColor:hovered == card.id ? `${card.hoverback}` : "transparent"
+                                    backgroundColor:hovered == card.id ? `${card.hoverback}` : "transparent",
+                                    height:"345px"
                                 }}
                                 onMouseEnter={() => setHovered(card.id)}
                                 onMouseLeave={() => setHovered(null)}
@@ -100,7 +101,7 @@ export default function PartnerWithUs(){
                 >
                     Become a Partner
                 </Button>  
-                <div className="specifications" style={{ fontSize: "16px" }}>
+                <div className="specifications" style={{ fontSize: "16px" ,textAlign:"center"}}>
                     For partnership inquiries, contact us at{" "}
                     <a
                         href="mailto:partners@stateofai.ma"

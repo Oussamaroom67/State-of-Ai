@@ -25,11 +25,79 @@
 }
 .wthbck{
     background: linear-gradient(135deg,
-      rgba(29, 122, 99, 0.03) 0%,    /* Vert avec opacité */
-      rgba(255, 255, 255, 0.98) 50%,  /* Blanc */
-      rgba(193, 32, 38, 0.03) 100%    /* Rouge avec opacité */
+      rgba(29, 122, 99, 0.03) 0%,    
+      rgba(255, 255, 255, 0.98) 50%,  
+      rgba(193, 32, 38, 0.03) 100%   
     );
 }
+  /* 📱 Mobile (petit) : Moins de 480px */
+@media (max-width: 480px) {
+    .Title {
+      font-size: 20px !important;
+      text-align: center;
+    }
+    .Insights-content{
+        padding: 5%;
+    }
+    .Cards{
+      flex-direction: column;
+    }
+    .card{
+      width: 100% !important;
+    }
+    .PartnerCards{
+      gap: 30px !important;
+    }
+}
+
+/* 📲 Mobile (grand) : Moins de 600px */
+@media (max-width: 600px) {
+    .Title {
+      font-size: 20px;
+    }
+    .Insights-content{
+      padding: 5%;
+    }
+    .PartnerCards{
+      gap: 30px !important;
+    }
+}
+
+  /* 🏠 Tablette (portrait) : Moins de 768px */
+@media (max-width: 768px) {
+    .Title {
+      font-size: 30px;
+    }
+    .Insights-content{
+      padding: 5%;
+    }
+    .Cards{
+      flex-direction: column;
+    }
+    .card{
+      width: 100% !important;
+    }
+    .contentCard{
+      height: fit-content!important;
+    }
+    .PartnerCards{
+      gap: 20px !important;
+    }
+}
+
+  /* 💻 Tablette (paysage) : Moins de 992px */
+@media (max-width: 1030px )and (min-width:769px) {
+    .Title {
+      font-size: 30px;
+    }
+    .Insights-content{
+      padding: 5%;
+    }
+    .contentCard{
+      height: 280px !important;
+    }
+}
+
 
 
 
