@@ -18,19 +18,21 @@ export default function DataInsights() {
     return (
         <div className="Insights-content">
             <div className="Badge">Data Driven Insights</div>
-            <div className="Title">Mapping Morocco's AI Landscape</div>
+            <div className="Title" >Mapping Morocco's AI Landscape</div>
             <div className="specifications description">Our initiative collects and analyzes key metrics about the state of artificial intelligence and data science across Morocco.</div>
             <div className="Cards" style={{ display: "flex", gap: "20px" }}>
                 {cards.map((card) => (
-                    <Box key={card.id} style={{ width: "31%" }}>
+                    <Box key={card.id} className="card" style={{ width: "31%"}}>
                         <Card
+                            className='contentCard'
                             variant="outlined"
                             style={{
                                 padding: "10px",
                                 borderRadius: "12px",
                                 border: hovered === card.id ? `1px solid ${card.borderColor}` : "1px solid transparent",
                                 transition: "border 0.3s ease-in-out",
-                                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.08)" 
+                                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.08)" ,
+                                height:"240px"
                             }}
                             onMouseEnter={() => setHovered(card.id)}
                             onMouseLeave={() => setHovered(null)}
