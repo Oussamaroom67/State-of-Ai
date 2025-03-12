@@ -524,6 +524,7 @@ input:focus {
   nav{
     justify-content: space-between;
     padding: 10px ;
+    width: 100vw;
   }
   nav .links{
     display: none !important;
@@ -573,6 +574,7 @@ input:focus {
     gap: 10px;
     flex-direction: column;
     width: 100%;
+    padding-right: 0;
   }
   .footer .description{
     width: 100%;
