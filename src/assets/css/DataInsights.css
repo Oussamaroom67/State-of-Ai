@@ -39,10 +39,10 @@
     .Insights-content{
         padding: 5%;
     }
-    .Cards{
+    .Insights-content .Cards{
       flex-direction: column;
     }
-    .card{
+    .Insights-content .card{
       width: 100% !important;
     }
     .PartnerCards{
@@ -70,11 +70,12 @@
     }
     .Insights-content{
       padding: 5%;
+      width: 100vw;
     }
-    .Cards{
+    .Insights-content .Cards{
       flex-direction: column;
     }
-    .card{
+    .Insights-content .card{
       width: 100% !important;
     }
     .contentCard{
@@ -92,6 +93,7 @@
     }
     .Insights-content{
       padding: 5%;
+      width: 100vw;
     }
     .contentCard{
       height: 280px !important;
