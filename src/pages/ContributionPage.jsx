@@ -2,6 +2,9 @@ import '../assets/css/ContributionPage.css';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import { useState, useEffect, useRef } from 'react';
 
+import supabase from "../supabaseClient";
+
+
 function AIBackgroundCanvas() {
     const canvasRef = useRef(null);
 
@@ -76,9 +79,31 @@ function AIBackgroundCanvas() {
     return <canvas ref={canvasRef} className="ai-background-canvas" />;
 }
 
+
+  
+
 export default function ContributionPage() {
     const [formsData, setFormsData] = useState({ name: '', email: '' });
-
+    const addUser = async () => {
+        console.log("Button clicked"); // Debugging log
+    
+        if (!formsData.name || !formsData.email) {
+            console.error("Please fill in all fields.");
+            return;
+        }
+    
+        const { data, error } = await supabase.from("state_ai_participant").insert([
+            { name: formsData.name, email: formsData.email }
+        ]);
+    
+        if (error) {
+            console.error("Error adding user:", error.message);
+        } else {
+            console.log("User added successfully:", data);
+            setFormsData({ name: '', email: '' }); // Reset form after submission
+        }
+    };
+    
     return (
         <>
             <div className="contribution">
@@ -120,7 +145,7 @@ export default function ContributionPage() {
                                     setFormsData({ ...formsData, email: e.target.value });
                                 }}/>
                             </div>
-                            <button>Join The Initiative</button>
+                            <button onClick={addUser}>Join The Initiative</button>
                             <div className="agree">By submitting, you agree to receive updates about the State of AI Morocco project and to participate in 1vs1 interviews.</div>
                         </div>
                     </div>

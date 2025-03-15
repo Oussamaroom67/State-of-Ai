@@ -6,6 +6,8 @@ import LandingPage from './pages/LandingPage';
 import DataInsights from './components/landingPage/DataInsights';
 import Footer from './pages/footer';
 import PartnerWithUs from './components/landingPage/PartnerWithUs';
+
+
 function App() {
   return (
     <>

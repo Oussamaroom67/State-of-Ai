@@ -14,11 +14,13 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import React, { useState } from 'react';
 import { Zap,  Globe, Check } from 'lucide-react';
+
+import supabase from "../../supabaseClient";
 export default function PartnerWithUs(){
     //states
     const [hovered, setHovered] = useState(null);
     const [open, setOpen] = useState(false);
-    const [expertise, setExpertise] = useState("");
+    const [formsData, setFormsData] = useState({ name: '', email: '', expertise: '' });
     //handlers
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -27,6 +29,26 @@ export default function PartnerWithUs(){
         { id: 1, title: "Exclusive Insights", description: "Partner companies receive detailed reports and analysis about the state of AI in Morocco before public release.", icon: <Zap color="#C12026" size={20} />, borderColor: "rgba(193, 32, 37, 0.44)", bgColor: "rgba(193, 32, 38, 0.2)",checked:["Custom data analysis","Industry benchmarking","Competitive positioning","Talent landscape mapping"],hoverback:"rgba(193, 32, 37, 0.06)"},
         { id: 2, title: "Brand Visibility", description: "Showcase your company's commitment to innovation and AI advancement in Morocco.", icon: < Globe color="#1D7A63" size={20} />, borderColor: "rgba(29, 122, 99, 0.46)", bgColor: "rgba(35, 151, 122, 0.2)" ,checked:["Logo placement on reports","Feature in case studies","Speaking opportunities","Media mentions"],hoverback:"rgba(29, 122, 99, 0.05)"}
     ];
+    const addPartner = async () => {
+        console.log("Button clicked"); // Debugging log
+    
+        if (!formsData.name || !formsData.email || !formsData.expertise) {
+            console.error("Please fill in all fields.");
+            return;
+        }
+    
+        const { data, error } = await supabase.from("state_ai_partner").insert([
+            { name: formsData.name, email: formsData.email, area_of_expertise: formsData.expertise}
+        ]);
+    
+        if (error) {
+            console.error("Error adding user:", error.message);
+        } else {
+            console.log("User added successfully:", data);
+            setFormsData({ name: '', email: '', expertise: 'not mentioned'}); // Reset form after submission
+            handleClose()
+        }
+    };
     return (
         <>
             <div className="Insights-content wthbck">
@@ -133,6 +155,9 @@ export default function PartnerWithUs(){
                                 color: "#A01B20",
                                 },
                             }}
+                            value={formsData.name} onChange={(e) => {
+                                setFormsData({ ...formsData, name: e.target.value });
+                            }}
                         />
                         <TextField label="Email" type="Email" variant="outlined" fullWidth
                             sx={{
@@ -144,7 +169,10 @@ export default function PartnerWithUs(){
                                 "& .MuiInputLabel-root.Mui-focused": {
                                 color: "#A01B20",
                                 },
-                            }}                        
+                            }} 
+                            value={formsData.email} onChange={(e) => {
+                                setFormsData({ ...formsData, email: e.target.value });
+                            }}                       
                         />
                         <FormControl fullWidth 
                             sx={{
@@ -159,7 +187,9 @@ export default function PartnerWithUs(){
                             }}                          
                         >
                             <InputLabel>Area of Expertise</InputLabel>
-                            <Select value={expertise} onChange={(e) => setExpertise(e.target.value)} label="Area of Expertise">
+                            <Select value={formsData.expertise} onChange={(e) => {
+                                setFormsData({ ...formsData, expertise: e.target.value });
+                            }} label="Area of Expertise">
                                 <MenuItem value="">Select your area of expertise</MenuItem>
                                 <MenuItem value="AI Research">AI Research</MenuItem>
                                 <MenuItem value="Industry Application">Industry Application</MenuItem>
@@ -173,7 +203,7 @@ export default function PartnerWithUs(){
                             <Button onClick={handleClose} variant="outlined" sx={{ borderColor: "#C12026", color: "#C12026",borderRadius: "28px" }}>
                                 Cancel
                             </Button>
-                            <Button variant="contained" sx={{ backgroundColor: "#C12026", "&:hover": { backgroundColor: "#A01B20" },borderRadius: "28px",padding:"9px 17px" }}>
+                            <Button onClick={addPartner} variant="contained" sx={{ backgroundColor: "#C12026", "&:hover": { backgroundColor: "#A01B20" },borderRadius: "28px",padding:"9px 17px" }}>
                                 Submit
                             </Button>
                         </Box>
