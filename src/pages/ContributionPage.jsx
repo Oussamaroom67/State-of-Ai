@@ -1,5 +1,6 @@
 import '../assets/css/ContributionPage.css';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
+import { Snackbar, Alert } from "@mui/material";
 import { useState, useEffect, useRef } from 'react';
 
 import supabase from "../supabaseClient";
@@ -84,11 +85,17 @@ function AIBackgroundCanvas() {
 
 export default function ContributionPage() {
     const [formsData, setFormsData] = useState({ name: '', email: '' });
+    const [message, setMessage] = useState({ text: "", type: "" });
+    const [open, setOpen] = useState(false);
+
+    const handleClose = () => setOpen(false);
     const addUser = async () => {
         console.log("Button clicked"); // Debugging log
     
         if (!formsData.name || !formsData.email) {
             console.error("Please fill in all fields.");
+            setMessage({ text: "Please fill in all fields!", type: "error" });
+            setOpen(true);
             return;
         }
     
@@ -97,11 +104,14 @@ export default function ContributionPage() {
         ]);
     
         if (error) {
-            console.error("Error adding user:", error.message);
+            setMessage({ text: `Error: ${error.message}`, type: "error" });
         } else {
             console.log("User added successfully:", data);
-            setFormsData({ name: '', email: '' }); // Reset form after submission
+            setMessage({ text: "User added successfully!", type: "success" });
+            setFormsData({ name: "", email: "" }); // Reset form
         }
+
+        setOpen(true);
     };
     
     return (
@@ -155,6 +165,12 @@ export default function ContributionPage() {
                     <AIBackgroundCanvas />
                 </div>
             </div>
+            {/* Snackbar for Notifications */}
+            <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={message.type} variant="filled">
+                    {message.text}
+                </Alert>
+            </Snackbar>
         </>
     );
 }

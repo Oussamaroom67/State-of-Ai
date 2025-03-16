@@ -12,6 +12,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import { Snackbar, Alert } from "@mui/material";
 import React, { useState } from 'react';
 import { Zap,  Globe, Check } from 'lucide-react';
 
@@ -25,6 +26,11 @@ export default function PartnerWithUs(){
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const [message, setMessage] = useState({ text: "", type: "" });
+    const [messageOpen, setMessageOpen] = useState(false);
+
+    const messageHandleClose = () => setMessageOpen(false);
+
     const cards = [
         { id: 1, title: "Exclusive Insights", description: "Partner companies receive detailed reports and analysis about the state of AI in Morocco before public release.", icon: <Zap color="#C12026" size={20} />, borderColor: "rgba(193, 32, 37, 0.44)", bgColor: "rgba(193, 32, 38, 0.2)",checked:["Custom data analysis","Industry benchmarking","Competitive positioning","Talent landscape mapping"],hoverback:"rgba(193, 32, 37, 0.06)"},
         { id: 2, title: "Brand Visibility", description: "Showcase your company's commitment to innovation and AI advancement in Morocco.", icon: < Globe color="#1D7A63" size={20} />, borderColor: "rgba(29, 122, 99, 0.46)", bgColor: "rgba(35, 151, 122, 0.2)" ,checked:["Logo placement on reports","Feature in case studies","Speaking opportunities","Media mentions"],hoverback:"rgba(29, 122, 99, 0.05)"}
@@ -34,6 +40,8 @@ export default function PartnerWithUs(){
     
         if (!formsData.name || !formsData.email || !formsData.expertise) {
             console.error("Please fill in all fields.");
+            setMessage({ text: "Please fill in all fields!", type: "error" });
+            setMessageOpen(true);
             return;
         }
     
@@ -42,12 +50,15 @@ export default function PartnerWithUs(){
         ]);
     
         if (error) {
-            console.error("Error adding user:", error.message);
+            console.error("Error adding partner:", error.message);
+            setMessage({ text: `Error: ${error.message}`, type: "error" });
         } else {
-            console.log("User added successfully:", data);
-            setFormsData({ name: '', email: '', expertise: 'not mentioned'}); // Reset form after submission
+            console.log("Partner added successfully:", data);
+            setMessage({ text: "Partner added successfully!", type: "success" });
+            setFormsData({ name: '', email: '', expertise: ''}); // Reset form after submission
             handleClose()
         }
+        setMessageOpen(true);
     };
     return (
         <>
@@ -209,7 +220,13 @@ export default function PartnerWithUs(){
                         </Box>
                     </Box>
                 </DialogContent>
+                
             </Dialog>
+            <Snackbar open={messageOpen} autoHideDuration={4000} onClose={messageHandleClose}>
+                <Alert onClose={messageHandleClose} severity={message.type} variant="filled">
+                    {message.text}
+                </Alert>
+            </Snackbar>
         </>
     );
 }
