@@ -4,6 +4,7 @@ import { Snackbar, Alert } from "@mui/material";
 import { useState, useEffect, useRef } from 'react';
 
 import supabase from "../supabaseClient";
+import { fetchRowCount } from "../utils/supabaseUtils";
 
 
 function AIBackgroundCanvas() {
@@ -113,6 +114,15 @@ export default function ContributionPage() {
 
         setOpen(true);
     };
+    const [professionals, setProfessionals] = useState(0);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        setProfessionals(await fetchRowCount("state_ai_participant"));
+      };
+  
+      fetchData();
+    }, []);
     
     return (
         <>
@@ -138,7 +148,7 @@ export default function ContributionPage() {
                                 }} 
                             />
                             <div className="count">
-                                <h4>100<span>+</span></h4>
+                                <h4>{professionals}<span>+</span></h4>
                                 <span>People already participating</span>
                             </div>
                         </div>

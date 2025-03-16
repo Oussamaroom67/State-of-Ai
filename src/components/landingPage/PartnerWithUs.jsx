@@ -60,6 +60,7 @@ export default function PartnerWithUs(){
         }
         setMessageOpen(true);
     };
+    
     return (
         <>
             <div className="Insights-content wthbck">
