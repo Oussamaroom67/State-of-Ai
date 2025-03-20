@@ -1,10 +1,10 @@
 import '../assets/css/ContributionPage.css';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import { Snackbar, Alert } from "@mui/material";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
+import { StatsContext } from '../StatsContext';
 
 import supabase from "../supabaseClient";
-import { fetchRowCount } from "../utils/supabaseUtils";
 
 
 function AIBackgroundCanvas() {
@@ -114,15 +114,7 @@ export default function ContributionPage() {
 
         setOpen(true);
     };
-    const [professionals, setProfessionals] = useState(0);
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        setProfessionals(await fetchRowCount("state_ai_participant"));
-      };
-  
-      fetchData();
-    }, []);
+    const { professionals } = useContext(StatsContext);
     
     return (
         <>

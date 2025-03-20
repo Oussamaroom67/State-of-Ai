@@ -5,22 +5,13 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 
-import { fetchRowCount } from "../../utils/supabaseUtils";
+import { StatsContext } from '../../StatsContext';
+
 
 export default function CardStats() {
-  const [companies, setCompanies] = useState(0);
-  const [professionals, setProfessionals] = useState(0);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setCompanies(await fetchRowCount("state_ai_partner"));
-      setProfessionals(await fetchRowCount("state_ai_participant"));
-    };
-
-    fetchData();
-  }, []);
+  const { companies, professionals } = useContext(StatsContext);
 
 
   return (
