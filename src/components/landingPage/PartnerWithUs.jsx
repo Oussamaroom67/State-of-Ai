@@ -38,14 +38,28 @@ export default function PartnerWithUs(){
     ];
     const addPartner = async () => {
         console.log("Button clicked"); // Debugging log
-    
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+ 
         if (!formsData.name || !formsData.email || !formsData.expertise) {
             console.error("Please fill in all fields.");
             setMessage({ text: "Please fill in all fields!", type: "error" });
             setMessageOpen(true);
+            setTimeout(() => {
+                setMessageOpen(false);
+            }, 3000);
             return;
         }
-    
+       // Check if the email is valid
+        if (!emailRegex.test(formsData.email)) {
+                console.error("Invalid email format.");
+                setMessage({ text: "Invalid email format.", type: "error" });
+                setMessageOpen(true);
+                setTimeout(() => {
+                    setMessageOpen(false);
+                }, 3000);
+                return;
+            }
         const { data, error } = await supabase.from("state_ai_partner").insert([
             { name: formsData.name, email: formsData.email, area_of_expertise: formsData.expertise}
         ]);

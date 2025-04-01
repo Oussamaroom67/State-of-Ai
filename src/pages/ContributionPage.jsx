@@ -92,11 +92,23 @@ export default function ContributionPage() {
     const handleClose = () => setOpen(false);
     const addUser = async () => {
         console.log("Button clicked"); // Debugging log
-    
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Check if the email is valid
+
         if (!formsData.name || !formsData.email) {
             console.error("Please fill in all fields.");
             setMessage({ text: "Please fill in all fields!", type: "error" });
             setOpen(true);
+            setTimeout(() => setOpen(false), 3000);
+
+            return;
+        }
+        if (!emailRegex.test(formsData.email)) {
+            console.error("Invalid email format.");
+            setMessage({ text: "Invalid email format.", type: "error" });
+            setOpen(true);
+            setTimeout(() => setOpen(false), 3000);
             return;
         }
     
@@ -147,7 +159,7 @@ export default function ContributionPage() {
                         <div className="inputs">
                             <div className="field">
                                 <label>Name</label>
-                                <input type="text" required placeholder='Oussama' value={formsData.name} onChange={(e) => {
+                                <input type="text" required placeholder='your_name' value={formsData.name} onChange={(e) => {
                                     setFormsData({ ...formsData, name: e.target.value });
                                 }}/>
                             </div>
