@@ -16,7 +16,7 @@ export default function DataInsights() {
     ];
 
     return (
-        <div className="Insights-content">
+        <div className="Insights-content" id="statistics">
             <div className="Badge">Data Driven Insights</div>
             <div className="Title" >Mapping Morocco's AI Landscape</div>
             <div className="specifications description">Our initiative collects and analyzes key metrics about the state of artificial intelligence and data science across Morocco.</div>

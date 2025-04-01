@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     gap: 13px;
+    background-color: white;
 }
 .Title{
     font-size: 50px;
@@ -25,9 +26,9 @@
 }
 .wthbck{
     background: linear-gradient(135deg,
-      rgba(29, 122, 99, 0.03) 0%,    
-      rgba(255, 255, 255, 0.98) 50%,  
-      rgba(193, 32, 38, 0.03) 100%   
+      rgba(29, 122, 99, 0.035) 0%,    
+      rgba(255, 255, 255, 0.88) 50%,  
+      rgba(193, 32, 38, 0.035) 100%   
     );
 }
   /* 📱 Mobile (petit) : Moins de 480px */

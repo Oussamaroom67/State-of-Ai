@@ -30,9 +30,9 @@ function AIBackgroundCanvas() {
         const nodes = Array.from({ length: 40 }, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            radius: Math.random() * 5 + 2,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
+            radius: Math.random() * 3 + 2,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
             color: colors[Math.floor(Math.random() * colors.length)]
         }));
 
@@ -118,7 +118,7 @@ export default function ContributionPage() {
     
     return (
         <>
-            <div className="contribution">
+            <div className="contribution" id="participate">
                 <div className="inscription">
                     <div className="description" style={{textAlign:"start"}}>
                         <div className="title">

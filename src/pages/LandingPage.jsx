@@ -3,7 +3,7 @@ import Navigation from "../components/landingPage/Navigation";
 
 export default function LandingPage(){
     return(
-        <div>
+        <div id="about" >
             <Navigation/>
             <ContentComp/>
         </div>

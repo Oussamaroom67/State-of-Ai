@@ -15,6 +15,7 @@ import FormControl from '@mui/material/FormControl';
 import { Snackbar, Alert } from "@mui/material";
 import React, { useState } from 'react';
 import { Zap,  Globe, Check } from 'lucide-react';
+import AnimatedBackground from "../back_ground/AnimatedBackground"
 
 import supabase from "../../supabaseClient";
 export default function PartnerWithUs(){
@@ -63,13 +64,14 @@ export default function PartnerWithUs(){
     
     return (
         <>
-            <div className="Insights-content wthbck">
+            
+            <div className="Insights-content wthbck"  id="for_companies">
                 <div className="Badge">For Organizations</div>
                 <div className="Title">Partner With Us</div>
                 <div className="specifications description">Join leading Moroccan companies in shaping the future of AI in our country. Become a partner and gain exclusive insights.</div>
                 <div className="Cards PartnerCards" style={{ display: "flex", gap: "0%" }}>
                     {cards.map((card) => (
-                        <Box key={card.id} style={{ width: "47%" }} className="card">
+                        <Box key={card.id} style={{ backgroundColor:"white", width: "47%" }} className="card">
                             <Card
                                 variant="outlined"
                                 style={{
@@ -78,7 +80,7 @@ export default function PartnerWithUs(){
                                     border: hovered === card.id ? `1px solid ${card.borderColor}` : "1px solid transparent",
                                     transition: "border 0.3s ease-in-out",
                                     boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.08)", 
-                                    backgroundColor:hovered == card.id ? `${card.hoverback}` : "transparent",
+                                    backgroundColor:hovered == card.id ? `${card.hoverback}` : "rgba(255, 255, 255, 0.71)",
                                     height:"345px"
                                 }}
                                 onMouseEnter={() => setHovered(card.id)}
